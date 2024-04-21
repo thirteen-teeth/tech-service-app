@@ -1,0 +1,23 @@
+version: '3'
+services:
+  tech-service-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+  consul:
+    image: hashicorp/consul:1.18.1
+    ports:
+      - "8500:8500"
+    command: ["consul", "agent", "-dev", "-client", "0.0.0.0"]
+  postgres:
+    image: postgres:12.1
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tech_service_db
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
