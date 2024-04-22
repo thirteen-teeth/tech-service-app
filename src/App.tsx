@@ -1,5 +1,5 @@
 import React from 'react';
-import strawhat from './smaller.png';
+import strawhat from './strawhat.png';
 import './App.css';
 
 // Define the ServiceOffering interface
