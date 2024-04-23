@@ -12,7 +12,7 @@ services:
       - "8500:8500"
     command: ["consul", "agent", "-dev", "-client", "0.0.0.0"]
   postgres:
-    image: postgres:12.1
+    image: postgres:16.2-alpine3.19
     ports:
       - "5432:5432"
     environment:
